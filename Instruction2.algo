@@ -1,0 +1,98 @@
+ALGORITHM Instruction_2
+//Problem 1
+VAR
+ tab one : ARRAY_OF INTEGER[];
+    tab two : ARRAY_OF INTEGER[];
+ i : INTEGER := 0;
+    j : INTEGER := 0;
+    test : BOOLEAN;
+    sum : INTEGER := 0;
+
+BEGIN
+    
+    Write ("first.");
+    FOR i FROM 0 TO tab one.length STEP 1  DO
+    Read (tab one[i]);
+    END_FOR
+    Write ("Second.");
+    i := 0;
+    FOR i FROM 0 TO tab two.length STEP 1  DO
+    Read (tab two[i]);
+    END_FOR
+
+    i := 0;
+    FOR i FROM 0 TO tab one.length STEP 1  DO
+    test := TRUE;
+        FOR j FROM 0 TO tab Two.length STEP 1 DO
+            IF (tab one[i]=tab two[j]) THEN
+            test := FALSE;
+            END_IF
+        END_FOR
+        IF test THEN sum := sum+tab one[i];
+        END_IF
+    END_FOR
+    i := 0;
+    j := 0;
+    FOR i FROM 0 TO tab two.length STEP 1 DO
+    test := TRUE;
+        FOR j FROM 0 TO tab one.length STEP 1 DO
+            IF (tab two[i]=tab one[j]) THEN
+            test := FALSE;
+            END_IF
+        END_FOR
+        IF test THEN sum := sum+tab two[i];
+        END_IF
+        END_FOR
+
+END
+//Hashtable
+ htab : HASH_TABLE<INTEGER,INTEGER>;
+   tabone : ARRAY_OF INTEGER[];
+    tabtwo : ARRAY_OF INTEGER[];
+   key : INTEGER;
+   count : INTEGER;
+htab : HASH_TABLE<INTEGER,INTEGER>;
+    Write ("First");
+    FOR i FROM 0 TO tabOne.length STEP 1  DO
+    Read (tabOne[i]);
+    END_FOR
+    Write ("Second");
+    i := 0;
+    FOR i FROM 0 TO tabtwo.length STEP 1  DO
+    Read (tabtwo[i]);
+    END_FOR
+
+   FOR i FROM 0 TO tabone.length STEP 1 DO
+    key := tabone[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR
+
+     FOR i FROM 0 TO tabtwo.length STEP 1 DO
+    key := tabtwo[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR      
+    
+   FOR i FROM 0 TO tabone.length STEP 1  DO
+       IF (htab.get(tabone[i]) = 1) THEN
+           sum := sum + tabone[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+    FOR i FROM 0 TO tabtwo.length STEP 1  DO
+       IF (htab.get(tabtwo[i]) = 1) THEN
+           sum := sum + tabtwo[i];
+           BREAK;
+       END_IF
+   END_FOR
+   END
